@@ -1,0 +1,47 @@
+KUMBUCASA — PRIMEIRA VERSÃO LIGADA AO SUPABASE
+================================================
+
+REQUISITOS
+- Node.js LTS instalado no computador
+- Ligação à internet
+
+COMO INICIAR NO WINDOWS
+1. Extraia a pasta KumbuCasa para um local fácil, por exemplo Documentos.
+2. Abra essa pasta.
+3. Clique na barra de endereço do Explorador de Ficheiros, escreva cmd e prima Enter.
+4. Na janela preta, execute:
+   npm install
+5. Quando terminar, execute:
+   npm run dev
+6. Abra no navegador o endereço que aparecer, normalmente http://localhost:5173
+
+SUPABASE
+O ficheiro .env.local já contém a URL do projeto KumbuCasa e a chave publishable pública.
+A chave publishable pode estar no frontend; NÃO adicione service_role ou qualquer chave secreta.
+Se alterar .env.local, pare o servidor com Ctrl+C e volte a executar npm run dev.
+
+O QUE ESTA VERSÃO JÁ FAZ
+- Interface responsiva em português para desktop e telemóvel.
+- Consulta anúncios publicados na tabela public.properties.
+- Pesquisa por palavra/localidade e filtros por tipo de imóvel e negócio.
+- Registo e entrada de utilizadores com Supabase Auth.
+- Guardar/remover favoritos (depende das políticas RLS da base de dados).
+- Formulário de publicação de anúncio na tabela public.properties.
+- Contacto por WhatsApp com mensagem preparada.
+- Usa fotografias de demonstração quando o anúncio ainda não tem imagem.
+
+IMPORTANTE
+- A base de dados Supabase foi criada anteriormente e contém as tabelas profiles, properties,
+  property_images, favorites, inquiries e property_reports, com RLS ativado.
+- Não há anúncios reais ainda; a página pode aparecer vazia até alguém publicar um anúncio.
+- A publicação automática nesta versão grava status='published'. Antes de colocar o site público,
+  confirme que as políticas RLS e as regras de moderação estão de acordo com a sua operação.
+- Esta é uma primeira versão funcional, não o produto completo descrito no Prompt Mestre.
+  Ainda faltam, entre outros, upload de imagens para Supabase Storage, painel administrativo,
+  moderação/denúncias avançadas, recuperação de palavra-passe, SEO e testes de segurança completos.
+- Se a consulta mostrar erro de permissões, não desative RLS. Verifique as políticas e os grants no Supabase.
+
+PUBLICAR NA INTERNET
+Depois de testar localmente, pode publicar o projeto num serviço compatível com Vite (por exemplo,
+Vercel ou Netlify), definindo as variáveis VITE_SUPABASE_URL e VITE_SUPABASE_PUBLISHABLE_KEY nas
+configurações de ambiente do serviço. Não publique .env.local no GitHub.
